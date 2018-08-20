@@ -8,9 +8,7 @@
 
 import UIKit
 
-private let reuseIdentifier = "Cell"
-
-class SentMemesCollectionViewController: UICollectionViewController {
+class SentMemesCollectionViewController: UICollectionViewController,UICollectionViewDelegateFlowLayout {
     
     var memes: [Meme]!
     
@@ -39,9 +37,6 @@ class SentMemesCollectionViewController: UICollectionViewController {
         
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         memes = appDelegate.memes
-
-        // Register cell classes
-        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
 
         // Do any additional setup after loading the view.
     }

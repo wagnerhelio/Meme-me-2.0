@@ -25,12 +25,6 @@ class TableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    func updateCell(_ meme: Meme) {
-        
-        //update cell's view
-        imgMeme.image = meme.memedImage
-        topText.text = meme.textTop as String?
-        bottomText.text = meme.textBottom as String?
-    }
+
 
 }
