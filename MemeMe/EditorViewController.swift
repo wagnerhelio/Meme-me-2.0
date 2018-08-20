@@ -26,6 +26,9 @@ class EditorViewController: UIViewController,UIImagePickerControllerDelegate,UIN
     @IBOutlet var scrollView: UIScrollView!
     
     
+    let memeData = (UIApplication.shared.delegate as!
+        AppDelegate).memes
+    
     // MARK: - Override Func
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -216,6 +219,9 @@ class EditorViewController: UIViewController,UIImagePickerControllerDelegate,UIN
                  self.save(memedImage: memedImage)
                 //Dismiss the shareActivityViewController
                 self.dismiss(animated: true, completion: nil)
+                
+                //Send Segue meme table view
+                self.performSegue(withIdentifier: "memeEditor" , sender: nil)
                 
             }
             

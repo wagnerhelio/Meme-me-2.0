@@ -10,10 +10,14 @@ import UIKit
 
 class  ViewController: UIViewController {
 
+    @IBOutlet var memedImage: UIImageView!
+    
+    var meme: Meme? = nil
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        memedImage.image = meme?.memedImage
     }
 
     override func didReceiveMemoryWarning() {

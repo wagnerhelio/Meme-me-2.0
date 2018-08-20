@@ -10,6 +10,9 @@ import UIKit
 
 class SentMemesTableViewController: UITableViewController {
     
+    @IBOutlet var addButton: UIBarButtonItem!
+    
+    
     var memes: [Meme] {
         return (UIApplication.shared.delegate as! AppDelegate).memes
     }
@@ -27,7 +30,7 @@ class SentMemesTableViewController: UITableViewController {
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+         self.navigationItem.leftBarButtonItem = self.editButtonItem
     }
 
     override func didReceiveMemoryWarning() {
@@ -49,10 +52,13 @@ class SentMemesTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath)
-
-        // Configure the cell...
-
+       
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath) as! TableViewCell
+       
+        let meme = Meme.getMemeStorage().memes[indexPath.row]
+        
+        cell.updateCell(meme)
+        
         return cell
     }
     
@@ -65,17 +71,29 @@ class SentMemesTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
+            Meme.getMemeStorage().memes.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
+
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
-    */
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        //Get the object of MemeDetailViewController from the Storyboard
+        let memeDetail = self.storyboard?.instantiateViewController(withIdentifier:"sentMemesTableShowDetail") as! ViewController
+        
+        //Pass the Meme Date
+        memeDetail.meme = Meme.getMemeStorage().memes[indexPath.row]
+        
+        //Push to the scene
+        navigationController?.pushViewController(memeDetail, animated: true)
+    }
 
     /*
     // Override to support rearranging the table view.

@@ -32,6 +32,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="23K-Tt-1ua"/>
                     </view>
+                    <connections>
+                        <outlet property="memedImage" destination="RTm-LX-Eq6" id="Owc-KE-ert"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yOx-PA-NMC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -79,11 +82,12 @@
                         <barButtonItem key="leftBarButtonItem" title="Edit" id="L6y-UT-ODY"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="J2M-c9-4t9">
                             <connections>
-                                <segue destination="BYZ-38-t0r" kind="presentation" id="JRg-ij-LIA"/>
+                                <segue destination="BYZ-38-t0r" kind="presentation" identifier="memeEditor" id="JRg-ij-LIA"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="flowLayout" destination="W3W-NA-RqX" id="zPi-BG-Ngx"/>
                         <segue destination="bC6-fE-5Wf" kind="show" identifier="sentMemesCollectionShowDetail" id="1Dl-U2-Tor"/>
                     </connections>
                 </collectionViewController>
@@ -117,19 +121,26 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="122" id="Die-oU-WBI" customClass="TableViewCell" customModule="MemeMe" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="TableViewCell" rowHeight="122" id="Die-oU-WBI" customClass="TableViewCell" customModule="MemeMe" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="320" height="122"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Die-oU-WBI" id="95i-th-lIR" customClass="TableViewCell" customModule="MemeMe" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="121.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="286" height="121.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8ze-ve-v5Z">
                                             <rect key="frame" x="16" y="0.0" width="127" height="111"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sld-B7-1Kw">
-                                            <rect key="frame" x="175" y="30" width="118" height="50"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sld-B7-1Kw">
+                                            <rect key="frame" x="160" y="0.0" width="118" height="42"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Sb-wF-zvd">
+                                            <rect key="frame" x="160" y="69" width="118" height="42"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
@@ -138,8 +149,9 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="bottomText" destination="1Sb-wF-zvd" id="mGG-po-THl"/>
                                     <outlet property="imgMeme" destination="8ze-ve-v5Z" id="Bps-HX-7YJ"/>
-                                    <outlet property="labelMeme" destination="Sld-B7-1Kw" id="9gn-Ff-JGf"/>
+                                    <outlet property="topText" destination="Sld-B7-1Kw" id="YME-yb-jDP"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -152,11 +164,12 @@
                         <barButtonItem key="leftBarButtonItem" title="Edit" id="CgE-qP-CGF"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="L1h-31-dXr">
                             <connections>
-                                <segue destination="BYZ-38-t0r" kind="presentation" id="6FY-36-J9M"/>
+                                <segue destination="BYZ-38-t0r" kind="presentation" identifier="memeEditor" id="6FY-36-J9M"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="addButton" destination="L1h-31-dXr" id="DOo-Et-F84"/>
                         <segue destination="bC6-fE-5Wf" kind="show" identifier="sentMemesTableShowDetail" id="l30-AG-aM9"/>
                     </connections>
                 </tableViewController>

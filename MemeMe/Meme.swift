@@ -10,8 +10,16 @@ import Foundation
 import UIKit
 
 struct Meme{
-    let textTop: String
-    let textBottom:String
-    let originalImage: UIImage
-    let memedImage: UIImage
+    var textTop: String
+    var textBottom:String
+    var originalImage: UIImage
+    var memedImage: UIImage
+    
+    static func count() -> Int {
+        return getMemeStorage().memes.count
+    }
+    
+    static func getMemeStorage() -> AppDelegate {
+        return UIApplication.shared.delegate as! AppDelegate
+    }
 }

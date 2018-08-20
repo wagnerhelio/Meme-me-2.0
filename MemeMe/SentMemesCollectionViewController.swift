@@ -12,9 +12,26 @@ private let reuseIdentifier = "Cell"
 
 class SentMemesCollectionViewController: UICollectionViewController {
 
+    @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        var space: CGFloat
+        var dimension: CGFloat
+        
+        
+        if (UIDeviceOrientationIsPortrait(UIDevice.current.orientation)) {
+            space = 3.0
+            dimension = (view.frame.size.width - (2 * space)) / 3 //3 per line
+        } else {
+            space = 1.0
+            dimension = (view.frame.size.width - (1 * space)) / 5
+        }
+        
+        flowLayout.minimumInteritemSpacing = space
+        flowLayout.itemSize = CGSize(width: dimension, height: dimension)
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -22,6 +39,12 @@ class SentMemesCollectionViewController: UICollectionViewController {
         self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
 
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        collectionView?.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -49,17 +72,31 @@ class SentMemesCollectionViewController: UICollectionViewController {
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return 0
+        return Meme.count()
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
-    
-        // Configure the cell
-    
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "memeEditor", for: indexPath) as! CollectionViewCell
+       
+        let meme = Meme.getMemeStorage().memes[indexPath.item]
+        
+        cell.updateCell(meme)
+       
         return cell
     }
-
+    
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        //Get the object of ViewController
+        let memeDetail = self.storyboard?.instantiateViewController(withIdentifier: "sentMemesCollectionShowDetail") as! ViewController
+        
+        //Pash
+        memeDetail.meme = Meme.getMemeStorage().memes[indexPath.row]
+        
+        //Push
+        navigationController?.pushViewController(memeDetail, animated: true)
+    }
     // MARK: UICollectionViewDelegate
 
     /*

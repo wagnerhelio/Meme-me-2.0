@@ -10,7 +10,9 @@ import UIKit
 
 class TableViewCell: UITableViewCell {
     
-    @IBOutlet var labelMeme: UILabel!
+    @IBOutlet var topText: UILabel!
+    @IBOutlet var bottomText: UILabel!
+    
     @IBOutlet var imgMeme: UIImageView!
     
     override func awakeFromNib() {
@@ -22,6 +24,13 @@ class TableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    func updateCell(_ meme: Meme) {
+        
+        //update cell's view
+        imgMeme.image = meme.memedImage
+        topText.text = meme.textTop as String?
+        bottomText.text = meme.textBottom as String?
     }
 
 }
