@@ -25,9 +25,7 @@ class EditorViewController: UIViewController,UIImagePickerControllerDelegate,UIN
     
     @IBOutlet var scrollView: UIScrollView!
     
-    
-    let memeData = (UIApplication.shared.delegate as!
-        AppDelegate).memes
+    var memeDetail: Meme?
     
     // MARK: - Override Func
     override func viewDidLoad() {
@@ -60,6 +58,12 @@ class EditorViewController: UIViewController,UIImagePickerControllerDelegate,UIN
         
         //Keyboard
         subscribeToKeyboardNotifications()
+        
+        //Load Image
+        if let detailMeme = memeDetail as Meme! {
+            imagePickerView.image = detailMeme.memedImage
+        }
+        
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -220,8 +224,7 @@ class EditorViewController: UIViewController,UIImagePickerControllerDelegate,UIN
                 //Dismiss the shareActivityViewController
                 self.dismiss(animated: true, completion: nil)
                 
-                //Send Segue meme table view
-                self.performSegue(withIdentifier: "memeEditor" , sender: nil)
+                self.navigationController?.popViewController(animated: true)
                 
             }
             

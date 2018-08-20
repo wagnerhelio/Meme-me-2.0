@@ -10,9 +10,5 @@ import UIKit
 
 class CollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var memeImg: UIImageView!
-    
-    func updateCell(_ meme: Meme) {
 
-        memeImg.image = meme.memedImage
-    }
 }

@@ -55,9 +55,10 @@ class SentMemesTableViewController: UITableViewController {
        
         let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath) as! TableViewCell
        
-        let meme = Meme.getMemeStorage().memes[indexPath.row]
+        let meme = memes[indexPath.row]
         
-        cell.updateCell(meme)
+        cell.imgMeme.image = meme.memedImage
+        
         
         return cell
     }
@@ -76,9 +77,13 @@ class SentMemesTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
-            Meme.getMemeStorage().memes.remove(at: indexPath.row)
+            var memesdelete = memes
+            
+            memesdelete.remove(at: indexPath.row)
+            tableView.reloadData()
+            
             tableView.deleteRows(at: [indexPath], with: .fade)
-
+            
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
@@ -86,10 +91,10 @@ class SentMemesTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         //Get the object of MemeDetailViewController from the Storyboard
-        let memeDetail = self.storyboard?.instantiateViewController(withIdentifier:"sentMemesTableShowDetail") as! ViewController
+        let memeDetail = self.storyboard?.instantiateViewController(withIdentifier:"ViewController") as! ViewController
         
         //Pass the Meme Date
-        memeDetail.meme = Meme.getMemeStorage().memes[indexPath.row]
+        memeDetail.meme = self.memes[indexPath.row]
         
         //Push to the scene
         navigationController?.pushViewController(memeDetail, animated: true)

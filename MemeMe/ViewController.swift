@@ -11,18 +11,25 @@ import UIKit
 class  ViewController: UIViewController {
 
     @IBOutlet var memedImage: UIImageView!
+    @IBOutlet var editBtn: UIBarButtonItem!
     
-    var meme: Meme? = nil
+    var meme: Meme!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        memedImage.image = meme?.memedImage
+        memedImage.image = meme.memedImage
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+
+    @IBAction func editBtn(_ sender: Any) {
+        let EditorViewController = storyboard!.instantiateViewController(withIdentifier: "EditorViewController") as! EditorViewController
+        
+        EditorViewController.memeDetail = self.meme
+        self.navigationController?.pushViewController(EditorViewController, animated: true)
     }
     
 

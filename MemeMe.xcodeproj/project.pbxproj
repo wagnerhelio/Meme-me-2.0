@@ -72,8 +72,8 @@
 			children = (
 				38BAE158211E0C8C00E0519C /* Font */,
 				385A16F22116A2680086135E /* AppDelegate.swift */,
-				3806B19E211FB25100B35864 /* Meme.swift */,
 				385A16F42116A2680086135E /* EditorViewController.swift */,
+				3806B19E211FB25100B35864 /* Meme.swift */,
 				38A2713A21273F290035099D /* ViewController.swift */,
 				38FB8B8F212B536B00814A3A /* Collection View */,
 				38FB8B8E212B534100814A3A /* Table View */,
