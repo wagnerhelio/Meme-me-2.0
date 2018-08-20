@@ -19,7 +19,6 @@
         <!--View Controller-->
         <scene sceneID="cfm-KF-eHQ">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="yOx-PA-NMC" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="bC6-fE-5Wf" customClass="ViewController" customModule="MemeMe" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="oPZ-gg-Ahz">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
@@ -34,37 +33,41 @@
                         <viewLayoutGuide key="safeArea" id="23K-Tt-1ua"/>
                     </view>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yOx-PA-NMC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-503" y="16"/>
         </scene>
-        <!--Collection View Controller-->
+        <!--Sent Memes Collection View Controller-->
         <scene sceneID="w4G-0f-fRQ">
             <objects>
-                <collectionViewController id="yEj-64-cFP" sceneMemberID="viewController">
+                <collectionViewController id="yEj-64-cFP" customClass="SentMemesCollectionViewController" customModule="MemeMe" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="qcB-gf-YxL">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="W3W-NA-RqX">
-                            <size key="itemSize" width="166" height="169"/>
+                            <size key="itemSize" width="146" height="149"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" id="Sts-aT-Vd9">
-                                <rect key="frame" x="77" y="0.0" width="166" height="169"/>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Sts-aT-Vd9" customClass="CollectionViewCell" customModule="MemeMe" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="146" height="149"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                    <rect key="frame" x="0.0" y="0.0" width="166" height="169"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="146" height="149"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4vp-al-Mtb">
-                                            <rect key="frame" x="0.0" y="0.0" width="166" height="169"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4vp-al-Mtb" userLabel="collectionImageView">
+                                            <rect key="frame" x="0.0" y="0.0" width="146" height="149"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
                                     </subviews>
                                 </view>
+                                <connections>
+                                    <outlet property="memeImg" destination="4vp-al-Mtb" id="jYA-cB-ndW"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
                         <connections>
@@ -86,7 +89,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mbo-rm-Rgi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1298" y="337"/>
+            <point key="canvasLocation" x="-1299.375" y="336.97183098591552"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="g32-Cn-pT5">
@@ -114,10 +117,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="122" id="Die-oU-WBI">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="122" id="Die-oU-WBI" customClass="TableViewCell" customModule="MemeMe" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="320" height="122"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Die-oU-WBI" id="95i-th-lIR">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Die-oU-WBI" id="95i-th-lIR" customClass="TableViewCell" customModule="MemeMe" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="121.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
@@ -134,6 +137,10 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="imgMeme" destination="8ze-ve-v5Z" id="Bps-HX-7YJ"/>
+                                    <outlet property="labelMeme" destination="Sld-B7-1Kw" id="9gn-Ff-JGf"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -316,7 +323,7 @@
         <image name="table" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="6FY-36-J9M"/>
-        <segue reference="l30-AG-aM9"/>
+        <segue reference="JRg-ij-LIA"/>
+        <segue reference="1Dl-U2-Tor"/>
     </inferredMetricsTieBreakers>
 </document>

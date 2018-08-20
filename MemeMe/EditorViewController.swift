@@ -187,7 +187,10 @@ class EditorViewController: UIViewController,UIImagePickerControllerDelegate,UIN
     }
     //Save Meme
     func save(memedImage: UIImage){
-        let meme = SaveMeme(textTop: textTop.text!, textBottom: textBotton.text!, originalImage: imagePickerView.image!, memedImage: memedImage)
+        let meme = Meme(textTop: textTop.text!, textBottom: textBotton.text!, originalImage: imagePickerView.image!, memedImage: memedImage)
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.memes.append(meme)
     }
     
     // MARK: - Actions
@@ -206,9 +209,6 @@ class EditorViewController: UIViewController,UIImagePickerControllerDelegate,UIN
         let memedImage = generateMemedImage()
         
         let shareActivityViewController = UIActivityViewController(activityItems: [memedImage], applicationActivities: nil)
-        
-    
-        
         shareActivityViewController.completionWithItemsHandler = { activity, completed, items, error in
             
             if completed {
@@ -220,7 +220,6 @@ class EditorViewController: UIViewController,UIImagePickerControllerDelegate,UIN
             }
             
         }
-        
         present(shareActivityViewController, animated: true, completion: nil)
     }
     
@@ -236,7 +235,8 @@ class EditorViewController: UIViewController,UIImagePickerControllerDelegate,UIN
             //Image Clear
             self.imagePickerView.image = nil
         }
-
+        
+        dismiss(animated: true, completion: nil)
     }
     
 }

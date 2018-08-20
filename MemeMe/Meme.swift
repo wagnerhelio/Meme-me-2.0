@@ -1,5 +1,5 @@
 //
-//  SaveMeme.swift
+//  Meme.swift
 //  MemeMe
 //
 //  Created by Wagner  Filho on 11/08/2018.
@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-struct SaveMeme{
+struct Meme{
     let textTop: String
     let textBottom:String
     let originalImage: UIImage
