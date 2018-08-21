@@ -11,7 +11,7 @@ import UIKit
 class  DetailMemeViewController: UIViewController {
 
     @IBOutlet var memedImage: UIImageView!
-    @IBOutlet var editBtn: UIBarButtonItem!
+
     
     var meme: Meme!
     
