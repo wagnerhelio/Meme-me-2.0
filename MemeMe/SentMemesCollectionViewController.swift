@@ -17,19 +17,11 @@ class SentMemesCollectionViewController: UICollectionViewController,UICollection
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        var space: CGFloat
-        var dimension: CGFloat
-        
-        
-        if (UIDeviceOrientationIsPortrait(UIDevice.current.orientation)) {
-            space = 3.0
-            dimension = (view.frame.size.width - (2 * space)) / 3 //3 per line
-        } else {
-            space = 1.0
-            dimension = (view.frame.size.width - (1 * space)) / 5
-        }
-        
+        var space: CGFloat = 3.0
+        var dimension: CGFloat = (view.frame.size.width - (2 * space)) / 3.0
+   
         flowLayout.minimumInteritemSpacing = space
+        flowLayout.minimumLineSpacing = space
         flowLayout.itemSize = CGSize(width: dimension, height: dimension)
         
         // Uncomment the following line to preserve selection between presentations
