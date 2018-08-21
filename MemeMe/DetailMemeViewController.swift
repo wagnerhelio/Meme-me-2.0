@@ -24,13 +24,6 @@ class  DetailMemeViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-    @IBAction func editBtn(_ sender: Any) {
-        let EditorViewController = storyboard!.instantiateViewController(withIdentifier: "EditorViewController") as! EditorViewController
-        
-        EditorViewController.memeDetail = self.meme
-        self.navigationController?.pushViewController(EditorViewController, animated: true)
-    }
     
 
     /*

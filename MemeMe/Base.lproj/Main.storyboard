@@ -32,15 +32,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="23K-Tt-1ua"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Detail Meme" id="rJm-6E-OQm">
-                        <barButtonItem key="rightBarButtonItem" title="Edit" id="g9p-OD-iMv">
-                            <connections>
-                                <action selector="editBtn:" destination="bC6-fE-5Wf" id="XKU-kR-ta3"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
                     <connections>
-                        <outlet property="editBtn" destination="g9p-OD-iMv" id="PmO-qY-nmc"/>
                         <outlet property="memedImage" destination="RTm-LX-Eq6" id="Owc-KE-ert"/>
                     </connections>
                 </viewController>
