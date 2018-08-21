@@ -16,7 +16,7 @@ class SentMemesTableViewController: UITableViewController {
     var memes: [Meme] {
         return (UIApplication.shared.delegate as! AppDelegate).memes
     }
-    var removeMeme: [Meme] = []
+    var removeMeme = [Meme]()
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
