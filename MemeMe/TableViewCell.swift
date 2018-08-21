@@ -12,7 +12,6 @@ class TableViewCell: UITableViewCell {
     
     @IBOutlet var topText: UILabel!
     @IBOutlet var bottomText: UILabel!
-    
     @IBOutlet var imgMeme: UIImageView!
     
     override func awakeFromNib() {

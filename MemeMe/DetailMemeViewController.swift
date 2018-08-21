@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  DetailMemeViewController.swift
 //  MemeMe
 //
 //  Created by Wagner  Filho on 17/08/2018.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class  ViewController: UIViewController {
+class  DetailMemeViewController: UIViewController {
 
     @IBOutlet var memedImage: UIImageView!
     @IBOutlet var editBtn: UIBarButtonItem!

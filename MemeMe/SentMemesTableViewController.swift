@@ -16,6 +16,7 @@ class SentMemesTableViewController: UITableViewController {
     var memes: [Meme] {
         return (UIApplication.shared.delegate as! AppDelegate).memes
     }
+    var removeMeme: [Meme] = []
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -77,11 +78,9 @@ class SentMemesTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
-            var memesdelete = memes
             
-            memesdelete.remove(at: indexPath.row)
             tableView.reloadData()
-            
+            removeMeme.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
             
         } else if editingStyle == .insert {
@@ -90,8 +89,8 @@ class SentMemesTableViewController: UITableViewController {
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        //Get the object of MemeDetailViewController from the Storyboard
-        let memeDetail = self.storyboard?.instantiateViewController(withIdentifier:"ViewController") as! ViewController
+        //Get the object of DetailMemeViewController from the Storyboard
+        let memeDetail = self.storyboard?.instantiateViewController(withIdentifier:"DetailMemeViewController") as! DetailMemeViewController
         
         //Pass the Meme Date
         memeDetail.meme = self.memes[indexPath.row]
