@@ -38,7 +38,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yOx-PA-NMC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-489.375" y="53.87323943661972"/>
+            <point key="canvasLocation" x="-428" y="683"/>
         </scene>
         <!--Collection View-->
         <scene sceneID="w4G-0f-fRQ">
@@ -62,12 +62,17 @@
                                     <rect key="frame" x="0.0" y="0.0" width="160" height="164"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4vp-al-Mtb" userLabel="collectionImageView">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4vp-al-Mtb" userLabel="collectionImageView">
                                             <rect key="frame" x="0.0" y="0.0" width="160" height="164"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
                                     </subviews>
                                 </view>
+                                <constraints>
+                                    <constraint firstItem="4vp-al-Mtb" firstAttribute="leading" secondItem="Sts-aT-Vd9" secondAttribute="leading" id="4uv-X9-Y39"/>
+                                    <constraint firstAttribute="trailing" secondItem="4vp-al-Mtb" secondAttribute="trailing" id="5pi-Iz-Y8z"/>
+                                    <constraint firstItem="4vp-al-Mtb" firstAttribute="top" secondItem="Sts-aT-Vd9" secondAttribute="top" id="eDh-QB-JKS"/>
+                                    <constraint firstAttribute="bottom" secondItem="4vp-al-Mtb" secondAttribute="bottom" id="mYg-Vc-6NF"/>
+                                </constraints>
                                 <connections>
                                     <outlet property="memeImg" destination="4vp-al-Mtb" id="jYA-cB-ndW"/>
                                 </connections>
@@ -110,7 +115,7 @@
             </objects>
             <point key="canvasLocation" x="-2226" y="337"/>
         </scene>
-        <!--Table View Cell-->
+        <!--TableViewCell-->
         <scene sceneID="pd2-dG-jxw">
             <objects>
                 <tableViewController storyboardIdentifier="SentMemesTableViewController" id="kPx-cX-ABq" customClass="SentMemesTableViewController" customModule="MemeMe" customModuleProvider="target" sceneMemberID="viewController">
@@ -128,18 +133,20 @@
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8ze-ve-v5Z">
                                             <rect key="frame" x="16" y="0.0" width="136" height="138"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Sb-wF-zvd">
-                                            <rect key="frame" x="238" y="53" width="40" height="42"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sld-B7-1Kw">
+                                            <rect key="frame" x="160" y="11" width="144" height="41"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <color key="backgroundColor" red="0.35075885810000001" green="1" blue="0.30538284199999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sld-B7-1Kw">
-                                            <rect key="frame" x="160" y="48" width="37" height="42"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Sb-wF-zvd">
+                                            <rect key="frame" x="160" y="100" width="144" height="38"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <color key="backgroundColor" name="systemPinkColor" catalog="System" colorSpace="catalog"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -158,11 +165,15 @@
                             <outlet property="delegate" destination="kPx-cX-ABq" id="UL1-Xg-ibg"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Table View Cell" id="V1o-Xo-bCE" userLabel="Table View Cell">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="4W0-N0-4M4"/>
+                    <navigationItem key="navigationItem" title="TableViewCell" id="V1o-Xo-bCE" userLabel="Table View Cell">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="4W0-N0-4M4">
+                            <connections>
+                                <segue destination="BYZ-38-t0r" kind="presentation" id="Dk2-de-leu"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="addButton" destination="4W0-N0-4M4" id="ftj-fL-B66"/>
+                        <outlet property="addButton" destination="4W0-N0-4M4" id="LNf-4n-Dlq"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vxc-JN-QWL" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -327,4 +338,7 @@
         <image name="collection" width="30" height="30"/>
         <image name="table" width="30" height="30"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="Dk2-de-leu"/>
+    </inferredMetricsTieBreakers>
 </document>

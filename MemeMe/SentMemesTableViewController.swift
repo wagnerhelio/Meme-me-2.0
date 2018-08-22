@@ -10,8 +10,8 @@ import UIKit
 
 class SentMemesTableViewController: UITableViewController {
     
-    @IBOutlet var addButton: UIBarButtonItem!
     
+    @IBOutlet var addButton: UIBarButtonItem!
     
     var memes: [Meme] {
         return (UIApplication.shared.delegate as! AppDelegate).memes
@@ -57,7 +57,8 @@ class SentMemesTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath) as! TableViewCell
        
         let meme = memes[indexPath.row]
-        
+        cell.topText.text = meme.textTop
+        cell.bottomText.text = meme.textBottom
         cell.imgMeme.image = meme.memedImage
         
         
